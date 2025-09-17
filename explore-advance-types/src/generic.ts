@@ -33,4 +33,68 @@
     235,
     { name: "John", age: 32 },
   ];
+
+  // Generic with Interface
+
+  interface Developer<T, B = null> {
+    name: string;
+    computer: {
+      brand: string;
+      model: string;
+      releaseYear: number;
+    };
+    smartWatch: T;
+    bike?: B;
+  }
+
+  type boatWatch = {
+    brand: string;
+    model: string;
+    display: string;
+  };
+
+  const poorDeveloper: Developer<boatWatch> = {
+    name: "Minhaz",
+    computer: {
+      brand: "Dell",
+      model: "Inspiron 15",
+      releaseYear: 2017,
+    },
+    smartWatch: {
+      brand: "boat",
+      model: "xc-2000",
+      display: "OLED",
+    },
+  };
+
+  interface appleWatch {
+    brand: string;
+    model: string;
+    heartTrack: boolean;
+    sleepTrack: boolean;
+  }
+
+  interface YahmahaBike {
+    model: string;
+    engineCapacity: string;
+  }
+
+  const richDeveloper: Developer<appleWatch, YahmahaBike> = {
+    name: "RichDev",
+    computer: {
+      brand: "Apple",
+      model: "Macbook pro",
+      releaseYear: 2028,
+    },
+    smartWatch: {
+      brand: "boat",
+      model: "xc-2000",
+      heartTrack: true,
+      sleepTrack: true,
+    },
+    bike: {
+      model: "R15M",
+      engineCapacity: "250cc",
+    },
+  };
 }
